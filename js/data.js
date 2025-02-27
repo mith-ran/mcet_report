@@ -4,6 +4,7 @@ let data=JSON.parse(localStorage.getItem('information'))
 if (!data){
   data=[];
 }
+console.log(data)
 export let description_list = data;
 export const update=(value,loc)=>{
   description_list.push({value,location:loc});

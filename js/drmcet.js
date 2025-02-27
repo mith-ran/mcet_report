@@ -1,5 +1,5 @@
 
-import {description_list,update} from '/data.js';
+import {description_list,update} from './data.js';
 
 
 let selectedLocation = null;
@@ -43,5 +43,5 @@ document.querySelector('.sum').addEventListener('click', function () {
   submitReport();
 });
 document.querySelector('.button').addEventListener('click', function () {
-  window.open('../dashboard.html');
+  window.open('dashboard.html');
 });

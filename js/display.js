@@ -1,5 +1,5 @@
 
-import {get} from "/data.js";
+import {get} from "./data.js";
 let des=get();
 console.log(des);
 console.log("hi");
