@@ -1,5 +1,5 @@
 
-import {description_list,update} from '../data.js';
+import {description_list,update} from '/data.js';
 
 
 let selectedLocation = null;
