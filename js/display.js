@@ -3,7 +3,7 @@ import {get} from "./data.js";
 let des=get();
 console.log(des);
 console.log("hi");
-let html=0;
+let html='';
 des.forEach((element) => {
   html+=`<div class="container">
   <h2> Issue</h2>
