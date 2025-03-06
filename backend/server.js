@@ -12,21 +12,27 @@ app.use(exp.json());
 app.use(cors());
 
 app.post('/',(req,res)=>{
-   
-    req.body.forEach((element) => {
-        
-        data.push(element);
-        console.log("here received dada"+element.value);
-        console.log("here received dada"+element.location.lat);
-
     
-    });
-    res.json(data)
    
+
+       req.body.forEach((element) => {
+            if(element.name){
+                console.log("empty")
+            }
+            else{
+
+                data.push(element);
+               
+            }
+       
+       });
+   
+    res.json(data)
+           
 });
 
 
-data.forEach((elem)=>{console.log(elem.value)})
+
 
 app.listen(port,'0.0.0.0',()=>{
     console.log(`running at localhost${port}`)

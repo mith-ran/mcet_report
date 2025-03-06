@@ -1,11 +1,11 @@
-
+import { sent_req } from "../frond_end/req.js";
+sent_req([{name:"ko"}]);
 import {get} from "./data.js";
 let des=get();
-console.log(des);
-console.log("hi");
+
 let html='';
 des.forEach((element) => {
-  console.log(element.value)
+  
   html+=`<div class="container">
   <h2> Issue</h2>
   <h3>Description:${element.value}</h3>

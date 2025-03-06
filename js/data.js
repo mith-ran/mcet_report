@@ -10,8 +10,6 @@ if (!data){
 console.log(data)
 export let description_list = data;
 export const update=(value,loc)=>{
-  console.log("input1"+value)
-  console.log("input2"+loc)
 
   let arr=[];
   let flag=1;
@@ -33,9 +31,9 @@ if(flag==1){
   description_list.push({value,location:loc});
   arr.push({value,location:loc});
   localStorage.setItem('information',JSON.stringify(description_list));
-  console.log(description_list);
-
-  }
+  
+}
+console.log(description_list);
   return(arr)
 }
 export const get=()=>{
