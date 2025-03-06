@@ -1,5 +1,7 @@
 
 import {description_list,update} from './data.js';
+import { sent_req } from '../frond_end/req.js';
+//import { fetch_data } from '../frond_end/data_req.js';
 
 
 let selectedLocation = null;
@@ -31,8 +33,11 @@ function submitReport() {
 
   alert('Report submitted successfully!');
   document.querySelector('.mar').innerHTML = `${description}`;
-  console.log(description_list);
-  update(description,selectedLocation);
+  //console.log(selectedLocation);
+  let data_1= update(description,selectedLocation);
+  console.log(data_1);
+  sent_req(data_1);
+  //fetch_data();
 }
 
 document.querySelector('.but').addEventListener('click',function(){
@@ -45,3 +50,4 @@ document.querySelector('.sum').addEventListener('click', function () {
 document.querySelector('.button').addEventListener('click', function () {
   window.open('dashboard.html');
 });
+
