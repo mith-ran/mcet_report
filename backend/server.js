@@ -1,6 +1,22 @@
 const exp = require('express');
-const cors =require('cors')
+const cors =require('cors');
+const {Server}=require('socket.io');
+const http=require('http')
+
 const app=exp();
+app.use(cors());
+const server=http.createServer(app);
+
+
+app.use(exp.json());
+
+const io= new Server(server,{
+    cors:{
+        origin:"*",
+    },
+})
+
+require('./socket.js')(io)
 let data=[
     {
       value: "wfw",
@@ -8,13 +24,8 @@ let data=[
     }]
 const port= 8080;
 
-app.use(exp.json());
-app.use(cors());
-
 app.post('/',(req,res)=>{
-    
-   
-
+ 
        req.body.forEach((element) => {
             if(element.name){
                 console.log("empty")
@@ -34,6 +45,6 @@ app.post('/',(req,res)=>{
 
 
 
-app.listen(port,'0.0.0.0',()=>{
+server.listen(port,'0.0.0.0',()=>{
     console.log(`running at localhost${port}`)
 })

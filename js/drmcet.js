@@ -1,8 +1,8 @@
 
 import {description_list,update} from './data.js';
 import { sent_req } from '../frond_end/req.js';
-//import { fetch_data } from '../frond_end/data_req.js';
 
+const socket=io("http://192.168.227.102:8080");
 
 let selectedLocation = null;
 const map = L.map('map').setView([10.654450394704826, -282.96283721923834], 13); // Fixed invalid longitude
@@ -32,12 +32,12 @@ function submitReport() {
   });
 
   alert('Report submitted successfully!');
-  document.querySelector('.mar').innerHTML = `${description}`;
-  //console.log(selectedLocation);
+
   let data_1= update(description,selectedLocation);
   console.log(data_1);
   sent_req(data_1);
-  //fetch_data();
+  
+  socket.emit("report_issue",description)
 }
 
 document.querySelector('.but').addEventListener('click',function(){
@@ -51,3 +51,8 @@ document.querySelector('.button').addEventListener('click', function () {
   window.open('dashboard.html');
 });
 
+socket.on('report_issue', (data) => {
+  console.log('New issue reported:', data);
+  document.querySelector('.mar').innerHTML = `New report:- ${data}`;
+
+});

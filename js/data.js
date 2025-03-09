@@ -39,4 +39,3 @@ console.log(description_list);
 export const get=()=>{
   return(description_list);
 }
-//hiuyg55
