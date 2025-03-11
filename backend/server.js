@@ -46,5 +46,5 @@ app.post('/',(req,res)=>{
 
 
 server.listen(port,'0.0.0.0',()=>{
-    console.log(`running at localhost${port}`)
+    console.log(`running at localhost via rail way${port}`)
 })
