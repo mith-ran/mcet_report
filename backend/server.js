@@ -47,7 +47,9 @@ app.post('/',(req,res)=>{
     res.json(data)
            
 });
-
+setInterval(() => {
+    console.log("Server is still running...");
+}, 60000);
 
 
 
