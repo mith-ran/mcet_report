@@ -6,7 +6,13 @@ const http=require('http')
 const app=exp();
 app.use(cors());
 const server=http.createServer(app);
+process.on('uncaughtException', (err) => {
+    console.error("Uncaught Exception:", err);
+});
 
+process.on('unhandledRejection', (reason, promise) => {
+    console.error("Unhandled Rejection:", reason);
+});
 
 app.use(exp.json());
 
@@ -45,6 +51,6 @@ app.post('/',(req,res)=>{
 
 
 
-server.listen(port,'0.0.0.0',()=>{
+server.listen(port,()=>{
     console.log(`running at localhost via rail way${port}`)
 })
